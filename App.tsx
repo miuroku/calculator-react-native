@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Display from './src/Display';
@@ -43,6 +43,22 @@ export default function App() {
         setWholeExpression,
     };
     
+    const infoState_ref = useRef<mainState>(infoState);
+
+    useMemo(() => {
+        infoState_ref.current = {
+        currentValue,
+        setCurrentValue,
+        previousValue,
+        setPreviousValue,
+        operator,
+        setOperator,
+        previousResult,
+        setPreviousResult,
+        wholeExpression,
+        setWholeExpression,
+        }
+    },[currentValue, previousResult, previousValue, operator, wholeExpression]);
 
     return (
         <View style={styles.mainBody}>
@@ -51,8 +67,9 @@ export default function App() {
                 backgroundColor="#61dafb"    
                 hidden={false} />
 
-            <Display state={infoState} />
-            <Keyboard state={infoState} />
+            <Display state_ref={infoState_ref} />            
+                                    
+            <Keyboard state_ref={infoState_ref} />
 
         </View>
     );

@@ -8,7 +8,7 @@ export default function Key ({ text, onPress }
 
     const textColors = {
         Common: '#ffff',
-        touched: '#f90000',
+        touched: '#000c68',
     };
     
     const [textColor, setTextColor] = useState(textColors.Common);
@@ -21,15 +21,14 @@ export default function Key ({ text, onPress }
 
     const onKeyPressHandler = (onPressIn: OnOutPress) => {                
         if (onPressIn === OnOutPress.On){
-            setTextColor(textColors.touched);      
-            console.log(`KDSSSSS`)      
+            setTextColor(textColors.touched);                  
         }
         else  {
-            setTextColor(textColors.Common);   
+            setTextColor(textColors.Common);               
         }
     }; 
 
-    const onPressClassicHandler = (someAnotherHandler?: any) => {
+    const onPressClassicHandler = (someAnotherHandler: ()=>void) => {
         Vibration.vibrate(41);                
         someAnotherHandler();
     }; 

@@ -1,5 +1,9 @@
 
 // TO-DO: 
+
+import React from "react";
+import { mainState } from "../../App";
+
 // Add more types/operator_val later for scienciefic part of calculator ...
 export const inputedTypes = {
     number: "number",
@@ -21,8 +25,14 @@ export const inputedTypes = {
 
 // TO-DO:
 // Add switch case for handling specific inputed types ...
-export default function calculator ( {type, value, state}:
-    {type: string, value: any, state: any} ): void {    
+export default function calculator ( {type, value, state_ref}:
+    {type: string, value: any, state_ref: React.RefObject<mainState>} ): void {    
+
+    const state = state_ref.current;
+
+    if (!state) {
+        return;
+    }
 
     console.log(`+Calculator() -> type: "${type}" and value : "${value}"`);
 
@@ -34,7 +44,7 @@ export default function calculator ( {type, value, state}:
         }
         case inputedTypes.clear: {            
             state.setWholeExpression("");
-            state.setPreviousResult("")
+            state.setPreviousResult("");
             break;
         }
         // TO-DO:
@@ -51,7 +61,8 @@ export default function calculator ( {type, value, state}:
             state.setWholeExpression(state.wholeExpression + `${value}`);
             break;
         }
-        case inputedTypes.operator: {            
+        case inputedTypes.operator: {
+            break;            
         }
         default: {
             // Just printing all values.    

@@ -10,8 +10,8 @@ import calculator from "../Logic/calculator";
 
 
 
-const CommonKeyboard = ({ state, tapHandler }
-    : {state: mainState, tapHandler: (type:string, value?:any)=> void}
+const CommonKeyboard = ({ state_ref, tapHandler }
+    : {state_ref: React.RefObject<mainState>, tapHandler: (type:string, value?:any)=> void}
     ) => {        
 
     useEffect(()=>{
@@ -56,8 +56,8 @@ const CommonKeyboard = ({ state, tapHandler }
     );
 };
 
-const SciencieficKeyboard = ({ state, tapHandler }
-    : {state: mainState, tapHandler: (type: string, value?:any)=>void} ) => {
+const SciencieficKeyboard = ({ state_ref, tapHandler }
+    : {state_ref: React.RefObject<mainState>, tapHandler: (type: string, value?:any)=>void} ) => {
 
     return (        
         <View style={styles.keyboard}>     
@@ -97,19 +97,19 @@ const SciencieficKeyboard = ({ state, tapHandler }
     );
 };
 
-export default function Keyboard ({ state }
-    : {state: mainState} ) {
+export default function Keyboard ({ state_ref }
+    : {state_ref: React.RefObject<mainState>} ) {
 
     // Changes 'infoState' using 'calculator'.
     let tapHandler = (type: string, value: any=type): void => {            
 
-        calculator({type, value, state});
+        calculator({type, value, state_ref});
     };    
 
     return (
         <View style={styles.keyboard}>
-            {/* <SciencieficKeyboard state={state} tapHandler={tapHandler}/>          */}
-            <CommonKeyboard state={state} tapHandler={tapHandler}/>
+            <SciencieficKeyboard state_ref={state_ref} tapHandler={tapHandler}/>          
+            <CommonKeyboard state_ref={state_ref} tapHandler={tapHandler}/>
         </View>
     );
 };

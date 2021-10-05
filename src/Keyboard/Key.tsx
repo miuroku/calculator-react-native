@@ -3,8 +3,8 @@ import { View, TouchableOpacity, Text, Vibration, StyleSheet } from "react-nativ
 import { useState } from "react";
 
 
-export default function Key ({ text, onPress, specialStyle }
-    : {text: string, onPress: ()=>void, specialStyle?: any} ) {
+export default function Key ({ text, onPress, specialStyle, specialKeyTextSize }
+    : {text: string, onPress: ()=>void, specialStyle?: any, specialKeyTextSize?: number} ) {
 
     const textColors = {
         Common: '#ffff',
@@ -40,7 +40,13 @@ export default function Key ({ text, onPress, specialStyle }
             onPressIn={() => onKeyPressHandler(OnOutPress.On)} 
             onPressOut={() => onKeyPressHandler(OnOutPress.Out)}>
                 {/**Button TExt**/}
-                <Text style={[styles.keyText, {color:textColor}]}>{text}</Text>            
+                <Text 
+                    style={
+                        [styles.keyText, 
+                        {color:textColor, 
+                        fontSize:specialKeyTextSize ? specialKeyTextSize: styles.keyText.fontSize}]}>
+                    {text}
+                </Text>            
         </TouchableOpacity>
     );
 };
@@ -60,7 +66,7 @@ const styles = StyleSheet.create({
         width:'100%',
     },
     keyText: {
-        fontSize:30,            
+        fontSize:33,            
         color:'#ffff',
     },
 });

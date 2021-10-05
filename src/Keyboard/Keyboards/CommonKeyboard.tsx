@@ -37,7 +37,7 @@ export default function CommonKeyboard ({ state_ref, tapHandler }
                     <Key text='3'   onPress={() => tapHandler(inputedTypes.number, 3)}></Key>                                    
                 </KeyRow>
                 <KeyRow>
-                    <Key text='()'  onPress={() => tapHandler(inputedTypes.brackets)}></Key>
+                    <Key text='( )'  onPress={() => tapHandler(inputedTypes.brackets)} specialKeyTextSize={27}></Key>
                     <Key text='0'   onPress={() => tapHandler(inputedTypes.number, 0)}></Key>
                     <Key text="."   onPress={() => tapHandler(inputedTypes.dot)}></Key>                             
                 </KeyRow>

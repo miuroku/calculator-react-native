@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TextInput } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, TextInput, Animated } from 'react-native';
 import { mainState } from '../App';
 
 export default function Display ({ wholeExpression }
@@ -15,9 +15,13 @@ export default function Display ({ wholeExpression }
     //const state = state_ref.current;
 
 
-    /* useEffect(() => {
-        console.log(`${state?.wholeExpression}`);
-    }, [state?.wholeExpression]); */
+    // Defining Ref to scrollView for getting it functionality later.
+    const wholeExpressionScrollView = useRef<ScrollView>(null);
+    
+    useEffect(() => {
+        wholeExpressionScrollView.current?.scrollToEnd({animated: false});
+    }, [wholeExpression]);
+
 
     return (  
         <View style={styles.body}>       
@@ -25,7 +29,9 @@ export default function Display ({ wholeExpression }
             <ScrollView
                 horizontal={true}
                 style={styles.outerScrollStyle}
-                contentContainerStyle={styles.innerScrollStyle}>
+                contentContainerStyle={styles.innerScrollStyle}
+                ref={wholeExpressionScrollView}                
+            >
 
                 <Text style={styles.contentinsideScrollStyle}>{wholeExpression}</Text>
             </ScrollView>
@@ -58,7 +64,9 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     contentinsideScrollStyle: {
-        fontSize: 30,
-        color: 'black',
+        fontSize: 56,
+        color: 'black',        
+        fontFamily: "monospace",     
+        marginLeft: 20,   
     }
 });

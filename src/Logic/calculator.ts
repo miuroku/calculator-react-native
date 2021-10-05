@@ -1,6 +1,3 @@
-
-// TO-DO: 
-
 import React from "react";
 import { mainState } from "../../App";
 
@@ -12,12 +9,11 @@ export const inputedTypes = {
         addition: "+",
         subtraction: "-",
         multiplication: "X",
-        divide: "/"},
+        divide: "/"
+    }, 
+    brackets: "()",
+    dot: ".",  
     equal: "=",        
-    special_val: {
-        equal: "=",  
-        dot: ".",      
-    },
     clear: "AC",    
     delete: "DEL",
 };

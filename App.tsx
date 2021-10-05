@@ -64,10 +64,10 @@ export default function App() {
         <View style={styles.mainBody}>
             <StatusBar
                 animated={true}
-                backgroundColor="#61dafb"    
+                backgroundColor="#d0bfff"    
                 hidden={false} />
 
-            <Display state_ref={infoState_ref} />            
+            <Display wholeExpression={wholeExpression} />            
                                     
             <Keyboard state_ref={infoState_ref} />
 

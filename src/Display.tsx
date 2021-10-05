@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TextInput } from 'react-native';
 import { mainState } from '../App';
 
-export default function Display ({ state_ref }
-    : {state_ref: React.RefObject<mainState>} ) {
+export default function Display ({ wholeExpression }
+    : {wholeExpression: string} ) {
         
     const [text, setText] = useState('');
     
@@ -12,22 +12,22 @@ export default function Display ({ state_ref }
     };
     **/
 
-    const state = state_ref.current;
+    //const state = state_ref.current;
 
 
-    useEffect(() => {
+    /* useEffect(() => {
         console.log(`${state?.wholeExpression}`);
-    }, [state?.wholeExpression]);
+    }, [state?.wholeExpression]); */
 
     return (  
         <View style={styles.body}>       
-            
+
             <ScrollView
                 horizontal={true}
                 style={styles.outerScrollStyle}
                 contentContainerStyle={styles.innerScrollStyle}>
 
-                <Text style={styles.contentinsideScrollStyle}>{state?.wholeExpression}</Text>
+                <Text style={styles.contentinsideScrollStyle}>{wholeExpression}</Text>
             </ScrollView>
             
             {/* <ScrollView
@@ -40,9 +40,9 @@ export default function Display ({ state_ref }
 
 const styles = StyleSheet.create({
     body: {
-        flex:3,
-        backgroundColor: '#c9b5ff',                
-        borderWidth:1,
+        flex:5,
+        backgroundColor: '#ece5ff',                
+        borderWidth:0,
         borderColor: '#794df0',                     
       },    
     resultFieldText: {                

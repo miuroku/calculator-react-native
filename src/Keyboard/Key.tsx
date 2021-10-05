@@ -3,8 +3,8 @@ import { View, TouchableOpacity, Text, Vibration, StyleSheet } from "react-nativ
 import { useState } from "react";
 
 
-export default function Key ({ text, onPress }
-    : {text: string, onPress: ()=>void} ) {
+export default function Key ({ text, onPress, specialStyle }
+    : {text: string, onPress: ()=>void, specialStyle?: any} ) {
 
     const textColors = {
         Common: '#ffff',
@@ -35,7 +35,7 @@ export default function Key ({ text, onPress }
 
     return (        
         <TouchableOpacity 
-            style={styles.key} 
+            style={specialStyle? specialStyle: styles.key} 
             onPress={() => onPressClassicHandler(onPress)}
             onPressIn={() => onKeyPressHandler(OnOutPress.On)} 
             onPressOut={() => onKeyPressHandler(OnOutPress.Out)}>

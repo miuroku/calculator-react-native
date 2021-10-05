@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         flex:4,
         flexDirection:'row',        
         backgroundColor:'#c9b5ff',          
-        borderTopColor:'#000000',  
+        borderTopColor:'#ffff',  
         borderTopWidth:5,
     }, 
 });

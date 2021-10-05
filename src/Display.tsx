@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TextInput, Animated } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TextInput, Keyboard, TouchableWithoutFeedbackBase, TouchableWithoutFeedback } from 'react-native';
 import { mainState } from '../App';
 
 export default function Display ({ wholeExpression }
@@ -21,7 +21,11 @@ export default function Display ({ wholeExpression }
     useEffect(() => {
         wholeExpressionScrollView.current?.scrollToEnd({animated: false});
     }, [wholeExpression]);
+    
 
+    useEffect(() => {
+        Keyboard.dismiss();
+    }, []);
 
     return (  
         <View style={styles.body}>       
@@ -31,15 +35,12 @@ export default function Display ({ wholeExpression }
                 style={styles.outerScrollStyle}
                 contentContainerStyle={styles.innerScrollStyle}
                 ref={wholeExpressionScrollView}                
-            >
-
-                <Text style={styles.contentinsideScrollStyle}>{wholeExpression}</Text>
-            </ScrollView>
+            >                
+                <Text style={styles.contentinsideScrollStyle}>{wholeExpression}</Text>                
+            </ScrollView> 
             
-            {/* <ScrollView
-            horizontal={true}>
-                <Text style={styles.resultFieldText}>{state.previousResult}</Text>
-            </ScrollView> */}
+            {/* <TextInput style={styles.contentinsideScrollStyle} value={wholeExpression}/> */}
+
         </View>                      
     );
 }
@@ -64,6 +65,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     contentinsideScrollStyle: {
+        flex:1,
         fontSize: 56,
         color: 'black',        
         fontFamily: "monospace",     

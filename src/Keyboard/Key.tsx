@@ -29,7 +29,7 @@ export default function Key ({ text, onPress, specialStyle, specialKeyTextSize }
     }; 
 
     const onPressClassicHandler = (someAnotherHandler: ()=>void) => {
-        Vibration.vibrate(41);                
+        Vibration.vibrate(20);                
         someAnotherHandler();
     }; 
 

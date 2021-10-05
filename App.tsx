@@ -67,8 +67,7 @@ export default function App() {
                 backgroundColor="#d0bfff"    
                 hidden={false} />
 
-            <Display wholeExpression={wholeExpression} />            
-                                    
+            <Display wholeExpression={wholeExpression} />                                                
             <Keyboard state_ref={infoState_ref} />
 
         </View>

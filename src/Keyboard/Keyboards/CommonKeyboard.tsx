@@ -43,11 +43,11 @@ export default function CommonKeyboard ({ state_ref, tapHandler }
                 </KeyRow>
             </KeyColumn> 
             <KeyColumn flex_1={3} specialBackground={'#97a6ed'}>
-                <Key text='/'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.divide)} specialStyle={styles.keyColumnSpecialStyle}></Key>
-                <Key text='X'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.multiplication)} specialStyle={styles.keyColumnSpecialStyle}></Key>
-                <Key text='-'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.subtraction)} specialStyle={styles.keyColumnSpecialStyle}></Key>
-                <Key text='+'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.addition)} specialStyle={styles.keyColumnSpecialStyle}></Key>
-                <Key text='='   onPress={() => tapHandler(inputedTypes.equal)} specialStyle={styles.keyColumnSpecialStyle}></Key>
+                <Key text='/'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.divide)}></Key>
+                <Key text='X'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.multiplication)}></Key>
+                <Key text='-'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.subtraction)}></Key>
+                <Key text='+'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.addition)}></Key>
+                <Key text='='   onPress={() => tapHandler(inputedTypes.equal)}></Key>
             </KeyColumn>        
         </View>
     );

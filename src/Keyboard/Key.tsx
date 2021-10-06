@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, TouchableOpacity, Text, Vibration, StyleSheet } from "react-native";
 import { useState } from "react";
 
+export enum KeyType {
+    Common,
+    Sciencific,
+    CommonSpecial,
+};
 
-export default function Key ({ text, onPress, specialStyle, specialKeyTextSize }
-    : {text: string, onPress: ()=>void, specialStyle?: any, specialKeyTextSize?: number} ) {
+
+export default function Key ({ text, onPress, specialKeyTextSize, keyType=KeyType.Common }
+    : {text: string, onPress: ()=>void, specialKeyTextSize?: number, keyType?: KeyType} ) {
 
     const textColors = {
         Common: '#ffff',
@@ -12,6 +18,7 @@ export default function Key ({ text, onPress, specialStyle, specialKeyTextSize }
     };
     
     const [textColor, setTextColor] = useState(textColors.Common);
+    const [keyStyle, setKeyStyle] = useState(styles.key);
 
     enum OnOutPress {
         On,
@@ -33,9 +40,22 @@ export default function Key ({ text, onPress, specialStyle, specialKeyTextSize }
         someAnotherHandler();
     }; 
 
+
+    useEffect(() => {
+        if (keyType === KeyType.Common){
+            setKeyStyle(styles.key);
+        } else if (keyType === KeyType.Sciencific) {
+            setKeyStyle(styles.sciencificKey);
+        } else if (keyType === KeyType.CommonSpecial) {
+            setKeyStyle(styles.commonKeyColumnSpecialStyle);
+        } else {
+            setKeyStyle(styles.key);
+        }
+    }, [])
+
     return (        
         <TouchableOpacity 
-            style={specialStyle? specialStyle: styles.key} 
+            style={keyStyle} 
             onPress={() => onPressClassicHandler(onPress)}
             onPressIn={() => onKeyPressHandler(OnOutPress.On)} 
             onPressOut={() => onKeyPressHandler(OnOutPress.Out)}>
@@ -59,8 +79,7 @@ const styles = StyleSheet.create({
         justifyContent:'center', // Vertical (if flexDirection row)
         backgroundColor:'#444A6B',        
         borderRadius:0,
-        borderWidth:0,
-        borderColor:'#ffff',
+        borderWidth:0,        
         margin:0,
         height:'100%',
         width:'100%',
@@ -68,5 +87,27 @@ const styles = StyleSheet.create({
     keyText: {
         fontSize:33,            
         color:'#ffff',
+    },
+    sciencificKey: {
+        flex: 1,
+        alignItems:'center', // Horizontal   (if flexDirection of Parent also horizontal)
+        justifyContent:'center', // Vertical (if flexDirection row)
+        backgroundColor:'#326cff',        
+        borderRadius:0,
+        borderWidth:0,        
+        margin:0,
+        height:'100%',
+        width:'100%',
+    },
+    commonKeyColumnSpecialStyle: {        
+        flex: 1,
+        alignItems:'center', // Horizontal   (if flexDirection of Parent also horizontal)
+        justifyContent:'center', // Vertical (if flexDirection row)
+        backgroundColor:'#8970a3',        
+        borderRadius:0,
+        borderWidth:0,        
+        margin:0,
+        height:'100%',
+        width:'100%',        
     },
 });

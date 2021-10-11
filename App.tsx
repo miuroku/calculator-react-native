@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useState } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import Display from './src/Display';
+import Display from './src/Display/Display';
 import Keyboard from './src/Keyboard/Keyboard';
 
 

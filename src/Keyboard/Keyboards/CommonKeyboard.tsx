@@ -5,7 +5,7 @@ import { mainState } from "../../../App";
 import { inputedTypes } from "../../Logic/calculator";
 import KeyColumn from "../KeyContainingEl/KeyColumn";
 import KeyRow from "../KeyContainingEl/KeyRow";
-import Key from "../Key";
+import Key, { KeyType } from "../Key";
 
 
 
@@ -43,11 +43,11 @@ export default function CommonKeyboard ({ state_ref, tapHandler }
                 </KeyRow>
             </KeyColumn> 
             <KeyColumn flex_1={3} specialBackground={'#97a6ed'}>
-                <Key text='/'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.divide)}></Key>
-                <Key text='X'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.multiplication)}></Key>
-                <Key text='-'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.subtraction)}></Key>
-                <Key text='+'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.addition)}></Key>
-                <Key text='='   onPress={() => tapHandler(inputedTypes.equal)}></Key>
+                <Key text='/'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.divide)} keyType={KeyType.CommonSpecial}></Key>
+                <Key text='X'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.multiplication)} keyType={KeyType.CommonSpecial}></Key>
+                <Key text='-'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.subtraction)} keyType={KeyType.CommonSpecial}></Key>
+                <Key text='+'   onPress={() => tapHandler(inputedTypes.operator, inputedTypes.operator_val.addition)} keyType={KeyType.CommonSpecial}></Key>
+                <Key text='='   onPress={() => tapHandler(inputedTypes.equal)} keyType={KeyType.CommonSpecial}></Key>
             </KeyColumn>        
         </View>
     );

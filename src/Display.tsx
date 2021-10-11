@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TextInput, Keyboard, TouchableWithoutFeedbackBase, TouchableWithoutFeedback } from 'react-native';
 import { mainState } from '../App';
 
-export default function Display ({ wholeExpression }
-    : {wholeExpression: string} ) {
+export default function Display ({ wholeExpression, isPortrait }
+    : {wholeExpression: string, isPortrait: ()=>boolean} ) {
         
     const [text, setText] = useState('');
     

@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import Display from './src/Display';
 import Keyboard from './src/Keyboard/Keyboard';
 
@@ -60,6 +60,27 @@ export default function App() {
         }
     },[currentValue, previousResult, previousValue, operator, wholeExpression]);
 
+
+    const [windowInfo, setWindowInfo] = useState(Dimensions.get("window"));
+
+    const isPortrait = (): boolean => {        
+        const result: boolean = windowInfo.height >= windowInfo.width;    
+        console.log(`isPortrait: ${result}`);
+        return result;
+    };
+
+    // Handling changes in "Dimensions".
+    useEffect(() => {
+        const onChangeHandler = ({window, screen}: {window: any, screen: any}) => {
+            setWindowInfo(window);
+        };
+
+        Dimensions.addEventListener("change", onChangeHandler);
+
+        return (() => {
+            Dimensions.removeEventListener("change", onChangeHandler)});
+    }, []);
+
     return (
         <View style={styles.mainBody}>
             <StatusBar
@@ -67,8 +88,8 @@ export default function App() {
                 backgroundColor="#d0bfff"    
                 hidden={false} />
 
-            <Display wholeExpression={wholeExpression} />                                                
-            <Keyboard state_ref={infoState_ref} />
+            <Display wholeExpression={wholeExpression} isPortrait={isPortrait}/>                                                            
+            <Keyboard state_ref={infoState_ref} isPortrait={isPortrait}/>
 
         </View>
     );

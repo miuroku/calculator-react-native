@@ -9,6 +9,6 @@ App created using cross-platform React Native framework and TypeScript.
 
 - [x] simple design
 - [x] simple typing implementation
+- [x] auto-switcher to scientific mode when device is horizontal **(in process)**
 - [ ] main logic for text processing **(in process)**
 - [ ] scientific mode **(in process)**
-- [ ] auto-switcher to scientific mode when device is horizontal **(in process)**

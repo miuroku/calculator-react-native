@@ -8,10 +8,12 @@ import { calculate_result } from '../Logic/calculator';
 import UpperButtonsPanel from './DisplayParts/UpperButtonsPanel/UpperButtonsPanel';
 
 
-export default function Display ({ wholeExpression, isPortrait }
+export default function Display ({ wholeExpression, isPortrait, useSciencificButtonsPanelInPortrait, setUseSciencificButtonsPanelInPortrait }
     : {
         wholeExpression: string,        
-        isPortrait: ()=>boolean
+        isPortrait: ()=>boolean,
+        useSciencificButtonsPanelInPortrait: boolean,
+        setUseSciencificButtonsPanelInPortrait: (state: boolean)=>void | ((fun: (prev_state: boolean)=>boolean)=>void)
     } ) {        
         
     const [result, setResult] = useState("");
@@ -23,7 +25,10 @@ export default function Display ({ wholeExpression, isPortrait }
 
     return (  
         <View style={styles.body}>                               
-            <UpperButtonsPanel isPortrait={isPortrait}/>
+            <UpperButtonsPanel 
+                isPortrait={isPortrait} 
+                useSciencificButtonsPanelInPortrait={useSciencificButtonsPanelInPortrait} 
+                setUseSciencificButtonsPanelInPortrait={setUseSciencificButtonsPanelInPortrait}/>
             <WholeExpressionScrollView wholeExpression={wholeExpression}/>
             <ResultScrollView result={result}/>            
         </View>                      

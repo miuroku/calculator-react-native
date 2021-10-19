@@ -8,20 +8,30 @@ import CommonKeyboard from "./Keyboards/CommonKeyboard";
 import SciencieficKeyboard from "./Keyboards/SciencificKeyboard";
 
 
-export default function Keyboard ({ state_ref, isPortrait }
-    : {state_ref: React.RefObject<mainState>, isPortrait: ()=>boolean} ) {    
+export default function Keyboard ({ state_ref, isPortrait, useSciencificButtonsPanelInPortrait }
+    : {
+        state_ref: React.RefObject<mainState>, 
+        isPortrait: ()=>boolean, 
+        useSciencificButtonsPanelInPortrait: boolean }
+    ) {    
 
     // Changes 'infoState' using 'calculator'.
     let tapHandler = (type: string, value: any=type): void => {            
-
         calculator({type, value, state_ref});
     };    
 
 
     const scrollViewRef = useRef<ScrollView>(null);
-    /* useEffect(() => {
-        scrollViewRef.current?.scrollTo();
-    },[]); */
+
+    // Make scroll if need to switch between calculator modes (Sciencific/Common).
+    useEffect(() => {
+        if (useSciencificButtonsPanelInPortrait){
+            scrollViewRef.current?.scrollToEnd();            
+        }
+        else {
+            scrollViewRef.current?.scrollTo();            
+        }        
+    },[useSciencificButtonsPanelInPortrait, isPortrait()]);
 
 
     return (

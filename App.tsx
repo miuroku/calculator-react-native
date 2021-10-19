@@ -28,6 +28,8 @@ export default function App() {
     const [previousValue, setPreviousValue] = useState(null);
     const [wholeExpression, setWholeExpression] = useState("");
     const [previousResult, setPreviousResult] = useState("");
+
+    const [useSciencificButtonsPanelInPortrait, setUseSciencificButtonsPanelInPortrait] = useState(false);
     
     // Unit all states in one object.
     const infoState: mainState = {
@@ -80,6 +82,8 @@ export default function App() {
             Dimensions.removeEventListener("change", onChangeHandler)});
     }, []);
 
+
+
     return (
         <View style={styles.mainBody}>
             <StatusBar
@@ -87,8 +91,16 @@ export default function App() {
                 backgroundColor="#d0bfff"    
                 hidden={false} />
 
-            <Display wholeExpression={wholeExpression} isPortrait={isPortrait}/>                                                            
-            <Keyboard state_ref={infoState_ref} isPortrait={isPortrait}/>
+            <Display 
+                wholeExpression={wholeExpression} 
+                isPortrait={isPortrait} 
+                useSciencificButtonsPanelInPortrait={useSciencificButtonsPanelInPortrait} 
+                setUseSciencificButtonsPanelInPortrait={setUseSciencificButtonsPanelInPortrait}/>                                                            
+
+            <Keyboard 
+                state_ref={infoState_ref}
+                isPortrait={isPortrait}
+                useSciencificButtonsPanelInPortrait={useSciencificButtonsPanelInPortrait}/>
 
         </View>
     );

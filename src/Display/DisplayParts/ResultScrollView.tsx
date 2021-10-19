@@ -17,7 +17,8 @@ export default function ResultScrollView ({ result }
                 horizontal={true}
                 style={styles.outerExpressionScrollStyle}
                 contentContainerStyle={styles.innerExpressionScrollStyle}
-                ref={resultExpressionScrollView}                
+                ref={resultExpressionScrollView}    
+                showsHorizontalScrollIndicator={false}            
             >                
                 <Text style={styles.contentinsideExpressionScrollStyle}>{result}</Text>                
         </ScrollView> 
@@ -34,10 +35,10 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     contentinsideExpressionScrollStyle: {        
-        fontSize: 47,
+        fontSize: 40,
         color: '#828282',        
         fontFamily: "monospace",     
-        marginLeft: 70,
+        marginLeft: 105,
         marginBottom: 10,   
     }
 });

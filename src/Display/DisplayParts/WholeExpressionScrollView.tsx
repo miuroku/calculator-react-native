@@ -19,7 +19,8 @@ export default function WholeExpressionScrollView ({ wholeExpression }
                     horizontal={true}
                     style={styles.outerExpressionScrollStyle}
                     contentContainerStyle={styles.innerExpressionScrollStyle}
-                    ref={wholeExpressionScrollView}                
+                    ref={wholeExpressionScrollView}    
+                    showsHorizontalScrollIndicator={false}            
                 >                
                     <Text style={styles.contentinsideExpressionScrollStyle}>{wholeExpression}</Text>                
             </ScrollView> 
@@ -29,17 +30,19 @@ export default function WholeExpressionScrollView ({ wholeExpression }
 
 const styles = StyleSheet.create({
     outerExpressionScrollStyle: {
-        flex: 4,
+        flex: 3,
         minWidth: '100%',
     },
     innerExpressionScrollStyle: {
-        alignItems: 'center',
+        alignItems: 'flex-start',        
         justifyContent: 'flex-start',
     },
     contentinsideExpressionScrollStyle: {        
         fontSize: 58,
         color: 'black',        
         fontFamily: "monospace",     
-        marginLeft: 70,   
+        marginLeft: 70,
+        paddingTop:0,  
+        marginTop:0, 
     }
 });

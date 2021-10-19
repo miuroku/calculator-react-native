@@ -5,6 +5,7 @@ import WholeExpressionScrollView from './DisplayParts/WholeExpressionScrollView'
 import ResultScrollView from './DisplayParts/ResultScrollView';
 import { mainState } from '../../App';
 import { calculate_result } from '../Logic/calculator';
+import UpperButtonsPanel from './DisplayParts/UpperButtonsPanel/UpperButtonsPanel';
 
 
 export default function Display ({ wholeExpression, isPortrait }
@@ -22,6 +23,7 @@ export default function Display ({ wholeExpression, isPortrait }
 
     return (  
         <View style={styles.body}>                               
+            <UpperButtonsPanel isPortrait={isPortrait}/>
             <WholeExpressionScrollView wholeExpression={wholeExpression}/>
             <ResultScrollView result={result}/>            
         </View>                      

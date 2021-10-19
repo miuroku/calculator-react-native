@@ -10,7 +10,7 @@ export default function ResultScrollView ({ result }
     
     useEffect(() => {
         resultExpressionScrollView.current?.scrollToEnd({animated: false});
-    }, []);
+    }, [result]);
 
     return (
         <ScrollView

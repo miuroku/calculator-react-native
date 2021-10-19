@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TextInput, Keyboard, TouchableWithoutFeedbackBase, TouchableWithoutFeedback } from 'react-native';
 
 import WholeExpressionScrollView from './DisplayParts/WholeExpressionScrollView';
@@ -15,7 +15,7 @@ export default function Display ({ wholeExpression, isPortrait }
         
     const [result, setResult] = useState("");
 
-    useEffect(() => {
+    useMemo(() => {
         const new_result = calculate_result( {wholeExpression} );
         setResult(new_result);
     }, [wholeExpression]);

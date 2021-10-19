@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { ScrollView, StyleSheet, Text } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 
 
@@ -14,20 +14,22 @@ export default function WholeExpressionScrollView ({ wholeExpression }
     }, [wholeExpression]);
 
     return (
-        <ScrollView
-                horizontal={true}
-                style={styles.outerExpressionScrollStyle}
-                contentContainerStyle={styles.innerExpressionScrollStyle}
-                ref={wholeExpressionScrollView}                
-            >                
-                <Text style={styles.contentinsideExpressionScrollStyle}>{wholeExpression}</Text>                
-        </ScrollView> 
+        <View style={styles.outerExpressionScrollStyle}>
+            <ScrollView
+                    horizontal={true}
+                    style={styles.outerExpressionScrollStyle}
+                    contentContainerStyle={styles.innerExpressionScrollStyle}
+                    ref={wholeExpressionScrollView}                
+                >                
+                    <Text style={styles.contentinsideExpressionScrollStyle}>{wholeExpression}</Text>                
+            </ScrollView> 
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     outerExpressionScrollStyle: {
-        flex: 1,
+        flex: 4,
         minWidth: '100%',
     },
     innerExpressionScrollStyle: {
@@ -35,9 +37,9 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     contentinsideExpressionScrollStyle: {        
-        fontSize: 56,
+        fontSize: 58,
         color: 'black',        
         fontFamily: "monospace",     
-        marginLeft: 20,   
+        marginLeft: 70,   
     }
 });

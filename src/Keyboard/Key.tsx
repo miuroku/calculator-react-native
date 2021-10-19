@@ -18,7 +18,7 @@ export default function Key ({ text, onPress, specialKeyTextSize, keyType=KeyTyp
     };
     
     const [textColor, setTextColor] = useState(textColors.Common);
-    const [keyStyle, setKeyStyle] = useState(styles.key);
+    const [keyStyle, setKeyStyle] = useState(styles.key);    
 
     enum OnOutPress {
         On,
@@ -49,7 +49,7 @@ export default function Key ({ text, onPress, specialKeyTextSize, keyType=KeyTyp
         } else if (keyType === KeyType.CommonSpecial) {
             setKeyStyle(styles.commonKeyColumnSpecialStyle);
         } else {
-            setKeyStyle(styles.key);
+            setKeyStyle(styles.sciencificKey);
         }
     }, [])
 
@@ -61,9 +61,9 @@ export default function Key ({ text, onPress, specialKeyTextSize, keyType=KeyTyp
             onPressOut={() => onKeyPressHandler(OnOutPress.Out)}>                
                 <Text 
                     style={
-                        [styles.keyText, 
+                        [keyType==KeyType.Common? styles.keyText: styles.sciencificKeyText, 
                         {color:textColor, 
-                        fontSize:specialKeyTextSize ? specialKeyTextSize: styles.keyText.fontSize}]}>
+                        fontSize:specialKeyTextSize ? specialKeyTextSize: keyType==KeyType.Common||keyType==KeyType.CommonSpecial? styles.keyText.fontSize: styles.sciencificKeyText.fontSize}]}>
                     {text}
                 </Text>            
         </TouchableOpacity>
@@ -85,6 +85,10 @@ const styles = StyleSheet.create({
     },
     keyText: {
         fontSize:33,            
+        color:'#ffff',
+    },
+    sciencificKeyText: {
+        fontSize: 23,
         color:'#ffff',
     },
     sciencificKey: {

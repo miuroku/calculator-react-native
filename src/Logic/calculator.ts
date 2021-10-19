@@ -10,12 +10,29 @@ export const inputedTypes = {
         subtraction: "-",
         multiplication: "X",
         divide: "/"
-    }, 
+    },
+    sciencificKeys: {
+        sin: "sin",
+        cos: "cos",
+        percent: "%",
+        tan: "tan",
+        lg: "lg",
+        ln: "ln",
+        erection_degree: "x^y",
+        divide_one: "1/x",
+        root: "√x",
+        pi: "π",
+        factorial: "x!",
+        e: "e",
+        RAD: "RAD",
+        DEG: "DEG",
+    },
     brackets: "()",
     dot: ".",  
     equal: "=",        
     clear: "AC",    
     delete: "DEL",
+    blank_key: '',
 };
 
 export function calculate_result( {wholeExpression}:

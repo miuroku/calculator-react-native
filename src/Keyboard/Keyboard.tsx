@@ -37,14 +37,15 @@ export default function Keyboard ({ state_ref, isPortrait }
                     contentContainerStyle={styles.portraitScrollViewElement}
                 >
                     <View style={styles.portraitScrollViewInnerElement}>                        
-                            <CommonKeyboard tapHandler={tapHandler}/>                                             
-                            <SciencieficKeyboard tapHandler={tapHandler}/>                     
+                            <CommonKeyboard tapHandler={tapHandler} isPortrait={true}/>       
+                            <View style={styles.horizontalUntouchableLine}></View>                                      
+                            <SciencieficKeyboard tapHandler={tapHandler} isPortrait={true}/>                     
                     </View>
                 </ScrollView>                
                 :
                 <View style={styles.keyboard}>
-                    <CommonKeyboard tapHandler={tapHandler}/>
-                    <SciencieficKeyboard tapHandler={tapHandler}/>
+                    <CommonKeyboard tapHandler={tapHandler} isPortrait={false}/>                    
+                    <SciencieficKeyboard tapHandler={tapHandler} isPortrait={false}/>
                 </View>
             , [isPortrait()])}            
         </View>
@@ -69,12 +70,19 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     portraitScrollViewElement: {        
-        width: '200%',
+        width: '170%',
         height: '100%',
     },
     portraitScrollViewInnerElement: {
         height: '100%',
         width: '100%',        
         flexDirection: "row",        
-    }
+    },
+    horizontalUntouchableLine: {
+        flex:1,
+        maxWidth: '4%',
+        backgroundColor:'#7a9fff',
+        borderTopColor:'#ffff',
+        borderTopWidth:5,
+    },
 });

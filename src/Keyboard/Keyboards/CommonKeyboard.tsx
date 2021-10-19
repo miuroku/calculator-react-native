@@ -9,13 +9,13 @@ import Key, { KeyType } from "../Key";
 
 
 
-export default function CommonKeyboard ({ tapHandler }
-    : { tapHandler: (type:string, value?:any)=> void }
+export default function CommonKeyboard ({ tapHandler, isPortrait }
+    : { tapHandler: (type:string, value?:any)=> void, isPortrait: boolean }
     ) {        
     
 
     return (
-        <View style={styles.keyboard}>     
+        <View style={isPortrait? styles.portraitKeyboard: styles.keyboard}>     
             <KeyColumn flex_1={8} specialBackground={'#c1aaff'}>
                 <KeyRow>            
                     <Key text='AC'  onPress={() => tapHandler(inputedTypes.clear)}></Key> 
@@ -54,12 +54,20 @@ export default function CommonKeyboard ({ tapHandler }
 };
 
 const styles = StyleSheet.create({
-    keyboard: {
+    portraitKeyboard: {
         flex:4,
         flexDirection:'row',        
         backgroundColor:'#c9b5ff',          
         borderTopColor:'white',  
         borderTopWidth:5,
+        maxWidth: '55%',
+    }, 
+    keyboard: {
+        flex:4,
+        flexDirection:'row',        
+        backgroundColor:'#c9b5ff',          
+        borderTopColor:'white',  
+        borderTopWidth:5,        
     }, 
     keyColumnSpecialStyle: {        
             flex: 1,

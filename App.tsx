@@ -64,8 +64,7 @@ export default function App() {
     const [windowInfo, setWindowInfo] = useState(Dimensions.get("window"));
 
     const isPortrait = (): boolean => {        
-        const result: boolean = windowInfo.height >= windowInfo.width;    
-        console.log(`isPortrait: ${result}`);
+        const result: boolean = windowInfo.height >= windowInfo.width;            
         return result;
     };
 

@@ -34,9 +34,10 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     contentinsideExpressionScrollStyle: {        
-        fontSize: 56,
-        color: 'black',        
+        fontSize: 47,
+        color: '#828282',        
         fontFamily: "monospace",     
-        marginLeft: 20,   
+        marginLeft: 70,
+        marginBottom: 10,   
     }
 });

@@ -37,14 +37,14 @@ export default function Keyboard ({ state_ref, isPortrait }
                     contentContainerStyle={styles.portraitScrollViewElement}
                 >
                     <View style={styles.portraitScrollViewInnerElement}>                        
-                            <CommonKeyboard state_ref={state_ref} tapHandler={tapHandler}/>                                             
-                            <SciencieficKeyboard state_ref={state_ref} tapHandler={tapHandler}/>                     
+                            <CommonKeyboard tapHandler={tapHandler}/>                                             
+                            <SciencieficKeyboard tapHandler={tapHandler}/>                     
                     </View>
                 </ScrollView>                
                 :
                 <View style={styles.keyboard}>
-                    <CommonKeyboard state_ref={state_ref} tapHandler={tapHandler}/>
-                    <SciencieficKeyboard state_ref={state_ref} tapHandler={tapHandler}/>
+                    <CommonKeyboard tapHandler={tapHandler}/>
+                    <SciencieficKeyboard tapHandler={tapHandler}/>
                 </View>
             , [isPortrait()])}            
         </View>

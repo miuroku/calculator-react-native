@@ -10,8 +10,8 @@ import { inputedTypes } from "../../Logic/calculator";
 import { KeyType } from "../Key";
 
 
-export default function SciencieficKeyboard ({ state_ref, tapHandler }
-    : {state_ref: React.RefObject<mainState>, tapHandler: (type: string, value?:any)=>void} ) {
+export default function SciencieficKeyboard ({ tapHandler }
+    : { tapHandler: (type: string, value?:any)=>void } ) {
 
     return (        
         <View style={styles.sciencificKeyboard}>     

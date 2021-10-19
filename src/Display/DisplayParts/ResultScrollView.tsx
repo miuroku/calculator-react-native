@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { ScrollView, StyleSheet, Text } from "react-native";
 
 
-
 export default function ResultScrollView ({ result } 
     : {result: string}) {
 

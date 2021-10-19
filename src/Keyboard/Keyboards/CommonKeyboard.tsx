@@ -9,8 +9,8 @@ import Key, { KeyType } from "../Key";
 
 
 
-export default function CommonKeyboard ({ state_ref, tapHandler }
-    : {state_ref: React.RefObject<mainState>, tapHandler: (type:string, value?:any)=> void}
+export default function CommonKeyboard ({ tapHandler }
+    : { tapHandler: (type:string, value?:any)=> void }
     ) {        
     
 

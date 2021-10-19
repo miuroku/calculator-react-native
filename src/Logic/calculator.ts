@@ -18,6 +18,11 @@ export const inputedTypes = {
     delete: "DEL",
 };
 
+export function calculate_result( {wholeExpression}:
+    {wholeExpression: string} ): string {            
+    
+    return wholeExpression;
+}
 
 // TO-DO:
 // Add switch case for handling specific inputed types ...
@@ -30,7 +35,7 @@ export default function calculator ( {type, value, state_ref}:
         return;
     }
 
-    console.log(`+Calculator() -> type: "${type}" and value : "${value}"`);
+    console.log(`+Calculator() -> type: "${type}" and value : "${value}"`);    
 
     switch (type) {
         case inputedTypes.delete: {

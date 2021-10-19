@@ -58,8 +58,7 @@ export default function Key ({ text, onPress, specialKeyTextSize, keyType=KeyTyp
             style={keyStyle} 
             onPress={() => onPressClassicHandler(onPress)}
             onPressIn={() => onKeyPressHandler(OnOutPress.On)} 
-            onPressOut={() => onKeyPressHandler(OnOutPress.Out)}>
-                {/**Button TExt**/}
+            onPressOut={() => onKeyPressHandler(OnOutPress.Out)}>                
                 <Text 
                     style={
                         [styles.keyText, 
